@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Component Inventory</title>
+  <link rel="stylesheet" href="./page.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Public demo</p>
+      <h1>Component Inventory</h1>
+      <p class="lede">Inventory, sourcing, and build capacity for sellers who depend on hard-to-source components.</p>
+    </div>
+    <a class="repoLink" href="https://github.com/paulrenzi/component-inventory">GitHub</a>
+  </header>
+
+  <main>
+    <section class="summaryBand" aria-label="Summary metrics">
+      <div>
+        <span id="buildableCount">0</span>
+        <label>Buildable arcade cabinets</label>
+      </div>
+      <div>
+        <span id="inboundCount">0</span>
+        <label>Inbound components</label>
+      </div>
+      <div>
+        <span id="vendorCount">0</span>
+        <label>Tracked vendors</label>
+      </div>
+      <div>
+        <span id="offerCount">0</span>
+        <label>Negotiable offers</label>
+      </div>
+    </section>
+
+    <section>
+      <div class="sectionHead">
+        <h2>Build Capacity</h2>
+        <p>Finished SKUs are limited by the tightest component in the bill of materials.</p>
+      </div>
+      <table id="buildable"></table>
+    </section>
+
+    <section>
+      <div class="sectionHead">
+        <h2>Component Stock</h2>
+        <p>Ledger-based stock with reservations separated from on-hand inventory.</p>
+      </div>
+      <table id="stock"></table>
+    </section>
+
+    <section>
+      <div class="sectionHead">
+        <h2>Inbound Sourcing</h2>
+        <p>Supplier orders from Amazon, eBay, and Alibaba feed future build capacity.</p>
+      </div>
+      <table id="inbound"></table>
+    </section>
+
+    <section>
+      <div class="sectionHead">
+        <h2>Vendor Intelligence</h2>
+        <p>Durable vendor records stay useful even after eBay listings disappear.</p>
+      </div>
+      <table id="vendors"></table>
+    </section>
+
+    <section>
+      <div class="sectionHead">
+        <h2>Negotiation Queue</h2>
+        <p>Offer automation starts as draft-only before one-button ordering is trusted.</p>
+      </div>
+      <table id="offers"></table>
+    </section>
+  </main>
+
+  <script src="./page-data.js"></script>
+  <script src="./page.js"></script>
+</body>
+</html>
+

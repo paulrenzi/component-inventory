@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Component Inventory</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Component Inventory</h1>
+      <p>Inventory, sourcing, and build capacity for component-heavy sellers.</p>
+    </div>
+    <button id="syncShopify">Sync Shopify</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Buildable SKUs</h2>
+      <table id="buildable"></table>
+    </section>
+
+    <section>
+      <h2>Low Stock</h2>
+      <table id="lowStock"></table>
+    </section>
+
+    <section>
+      <h2>Inbound Components</h2>
+      <table id="inbound"></table>
+    </section>
+
+    <section>
+      <h2>Open Work Orders</h2>
+      <table id="workOrders"></table>
+    </section>
+
+    <section>
+      <h2>Inventory Ledger View</h2>
+      <table id="stock"></table>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
