@@ -7,38 +7,170 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header>
+  <header class="hero">
     <div>
+      <p class="eyebrow">Local control surface</p>
       <h1>Component Inventory</h1>
-      <p>Inventory, sourcing, and build capacity for component-heavy sellers.</p>
+      <p class="lede">Private local dashboard for live inventory, BOMs, orders, and sourcing.</p>
     </div>
-    <button id="syncShopify">Sync Shopify</button>
+    <div class="header-actions">
+      <button id="syncShopify">Sync Products</button>
+      <button id="syncShopifyOrders">Sync Orders</button>
+      <p id="syncStatus" class="status" aria-live="polite"></p>
+    </div>
   </header>
 
   <main>
+    <section class="summaryBand" aria-label="Summary metrics">
+      <div>
+        <span id="buildableCount">0</span>
+        <label>Buildable SKUs</label>
+      </div>
+      <div>
+        <span id="inboundCount">0</span>
+        <label>Inbound components</label>
+      </div>
+      <div>
+        <span id="vendorCount">0</span>
+        <label>Tracked vendors</label>
+      </div>
+      <div>
+        <span id="offerCount">0</span>
+        <label>Negotiation drafts</label>
+      </div>
+      <div>
+        <span id="catalogCount">0</span>
+        <label>Sellable SKUs</label>
+      </div>
+    </section>
+
     <section>
-      <h2>Buildable SKUs</h2>
+      <div class="sectionHead">
+        <h2>Build Capacity</h2>
+        <p>Finished SKUs limited by current component stock.</p>
+      </div>
       <table id="buildable"></table>
     </section>
 
-    <section>
-      <h2>Low Stock</h2>
-      <table id="lowStock"></table>
+    <section class="grid-two">
+      <div>
+        <div class="sectionHead">
+          <h2>Component Stock</h2>
+          <p>On hand, reserved, and available component counts.</p>
+        </div>
+        <table id="stock"></table>
+      </div>
+      <div>
+        <div class="sectionHead">
+          <h2>Inbound Sourcing</h2>
+          <p>Open supplier orders by expected date.</p>
+        </div>
+        <table id="inbound"></table>
+      </div>
     </section>
 
     <section>
-      <h2>Inbound Components</h2>
-      <table id="inbound"></table>
+      <div class="sectionHead">
+        <h2>Shopify Catalog</h2>
+        <p>Imported sellable SKUs and mapping status.</p>
+      </div>
+      <table id="sellables"></table>
     </section>
 
     <section>
-      <h2>Open Work Orders</h2>
-      <table id="workOrders"></table>
+      <div class="sectionHead">
+        <h2>Open Orders</h2>
+        <p>Imported demand and reservation readiness.</p>
+      </div>
+      <table id="openOrders"></table>
+    </section>
+
+    <section class="grid-two">
+      <div class="panel">
+        <div class="sectionHead">
+          <h2>Add BOM Line</h2>
+          <p>Sellable SKU component requirements.</p>
+        </div>
+        <form id="bomForm" class="stack">
+          <label>
+            Sellable SKU
+            <select id="bomSellableSku" required></select>
+          </label>
+          <label>
+            Component SKU
+            <select id="bomItemSku" required></select>
+          </label>
+          <div class="inline">
+            <label>
+              Quantity
+              <input id="bomQuantity" type="number" min="1" value="1" required>
+            </label>
+            <label class="checkbox">
+              <input id="bomSubstitutable" type="checkbox">
+              Substitutable
+            </label>
+          </div>
+          <button type="submit">Save BOM line</button>
+        </form>
+      </div>
+      <div class="panel">
+        <div class="sectionHead">
+          <h2>Map Channel SKU</h2>
+          <p>External channel identifiers.</p>
+        </div>
+        <form id="mappingForm" class="stack">
+          <label>
+            Channel
+            <input id="mappingChannel" placeholder="Shopify" required>
+          </label>
+          <label>
+            Channel SKU
+            <input id="mappingChannelSku" placeholder="UA-ARCADE-BLK-2TB" required>
+          </label>
+          <label>
+            Sellable SKU
+            <select id="mappingSellableSku"></select>
+          </label>
+          <label>
+            Item SKU
+            <select id="mappingItemSku"></select>
+          </label>
+          <button type="submit">Save mapping</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="grid-two">
+      <div>
+        <div class="sectionHead">
+          <h2>BOM Components</h2>
+          <p>Current component rows.</p>
+        </div>
+        <table id="bomComponents"></table>
+      </div>
+      <div>
+        <div class="sectionHead">
+          <h2>Channel Mappings</h2>
+          <p>Channel links to sellable SKUs or components.</p>
+        </div>
+        <table id="channelMappings"></table>
+      </div>
     </section>
 
     <section>
-      <h2>Inventory Ledger View</h2>
-      <table id="stock"></table>
+      <div class="sectionHead">
+        <h2>Vendor Intelligence</h2>
+        <p>Supplier reliability records.</p>
+      </div>
+      <table id="vendors"></table>
+    </section>
+
+    <section>
+      <div class="sectionHead">
+        <h2>Negotiation Queue</h2>
+        <p>Draft and watched supplier offers.</p>
+      </div>
+      <table id="offers"></table>
     </section>
   </main>
 

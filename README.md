@@ -18,6 +18,7 @@ The first target use case is PC-component-heavy commerce: mini PCs, arcade cabin
 - Walmart inventory update connector with dry-run default
 - Amazon listing/inventory read connector
 - Vanilla dashboard served by a Python stdlib HTTP server
+- Local Shopify/BOM mapping UI for sellable SKUs, BOM components, and channel mappings
 
 ## Quick Start
 
@@ -31,6 +32,8 @@ Then open:
 ```text
 http://127.0.0.1:8787
 ```
+
+The local UI is the private control surface for live data. Keep GitHub Pages public/demo-only unless a real authenticated backend is added.
 
 ## Environment
 

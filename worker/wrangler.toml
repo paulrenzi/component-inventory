@@ -1,0 +1,8 @@
+name = "component-inventory-remote"
+main = "src/index.js"
+compatibility_date = "2026-07-08"
+account_id = "83f33c67294ca2f2f0869b63c1663b0e"
+workers_dev = true
+
+[vars]
+ORIGIN_URL = "https://oil-blue-any-filter.trycloudflare.com"
